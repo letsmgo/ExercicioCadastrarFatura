@@ -30,6 +30,7 @@ public class ServicoConsumidor {
     //-------------------------------------------------MÉTODO PARA CADASTRAR UM CONSUMIDOR
     public static Consumidor cadastrarConsumidor(String nome, String email, TipoDeCliente tipoDeCliente) throws Exception{
         validarEmail(email);
+        verificarSeOEmailExiste(email);
         Consumidor consumidor = new Consumidor(nome, email, tipoDeCliente);
     consumidores.add(consumidor);
 
@@ -53,4 +54,14 @@ public class ServicoConsumidor {
             throw new Exception("E-mail inválido. ");
         }
     }
+
+    //-------------------------------------------------MÉTODO PARA VERIFICAR SE O E-MAIL JÁ FOI CADASTRADO
+    public static void verificarSeOEmailExiste(String email) throws Exception{
+        for (Consumidor consumidorReferencia : consumidores) {
+            if (consumidorReferencia.getEmail().equals(email)){
+                throw new Exception("Este e-mail já foi cadastrado, você perdeu seu acesso? Ou digitou algo errado. ");
+            }
+        }
+    }
+
 }

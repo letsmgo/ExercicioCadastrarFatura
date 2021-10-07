@@ -37,4 +37,21 @@ public class Sistema {
 
         return ServicoFatura.cadastrarFatura(email, valor, dataDeVencimento);
     }
+
+    public static void executar() throws Exception{
+        boolean continuarMenu = true;
+
+        while (continuarMenu){
+            menu();
+            int opcaoDoUsuario = capturarDados("Digite a opção desejada: ").nextInt();
+
+            if (opcaoDoUsuario == 1){
+                Consumidor consumidor = cadastrarConsumidor();
+            } else if (opcaoDoUsuario == 2){
+                Fatura fatura = cadastrarFatura();
+            } else if (opcaoDoUsuario == 3){
+                continuarMenu = false;
+            }
+        }
+    }
 }
