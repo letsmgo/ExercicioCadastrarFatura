@@ -18,7 +18,7 @@ public class Sistema {
         System.out.println("|Digite 4 - se deseja sair.                                 | ");
     }
 
-    //-------------------------------------------------Método para cadastrar um consumidor
+    //-------------------------------------------------MÉTODO PARA CADASTRAR UM CONSUMIDOR
     public static Consumidor cadastrarConsumidor() throws Exception{
         String nome = capturarDados("Digite o nome do consumidor: ").nextLine();
         String email = capturarDados("Digite o e-mail do consumidor: ").nextLine();
@@ -29,7 +29,7 @@ public class Sistema {
         return ServicoConsumidor.cadastrarConsumidor(nome, email, TipoDeCliente.valueOf(tipoDeCliente));
     }
 
-    //-------------------------------------------------Método para cadastrar uma fatura
+    //-------------------------------------------------MÉTODO PARA CADASTRAR UMA FATURA
     public static Fatura cadastrarFatura() throws Exception{
         String email = capturarDados("Digite o email do consumidor: ").nextLine();
         double valor = capturarDados("Digite o valor da fatura: ").nextDouble();

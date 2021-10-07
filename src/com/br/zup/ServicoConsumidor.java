@@ -28,9 +28,11 @@ public class ServicoConsumidor {
     }
 
     //-------------------------------------------------MÉTODO PARA CADASTRAR UM CONSUMIDOR
-    public static Consumidor cadastrarConsumidor(String nome, String email, TipoDeCliente tipoDeCliente){
-       Consumidor consumidor = new Consumidor(nome, email, tipoDeCliente);
+    public static Consumidor cadastrarConsumidor(String nome, String email, TipoDeCliente tipoDeCliente) throws Exception{
+        validarEmail(email);
+        Consumidor consumidor = new Consumidor(nome, email, tipoDeCliente);
     consumidores.add(consumidor);
+
        return consumidor;
     }
 
@@ -38,9 +40,17 @@ public class ServicoConsumidor {
     public static Consumidor pesquisarConsumidorPorEmail(String email) throws Exception{
         for (Consumidor consumidorReferencia: consumidores) {
             if (consumidorReferencia.getEmail().equals(email)){
+
                 return consumidorReferencia;
             }
         }
         throw new Exception("Consumidor não cadastrado no sistema. ");
+    }
+
+    //-------------------------------------------------MÉTODO PARA PESQUISAR CONSUMIDOR PELO E-MAIL
+    public static void validarEmail(String email) throws Exception{
+        if (!email.contains("@")){
+            throw new Exception("E-mail inválido. ");
+        }
     }
 }
