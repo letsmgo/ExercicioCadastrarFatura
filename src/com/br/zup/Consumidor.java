@@ -9,9 +9,6 @@ public class Consumidor {
     private TipoDeCliente tipoDeCliente;
 
     //-------------------------------------------------MÉTODO CONSTRUTOR
-    public Consumidor(){
-
-    }
 
     public Consumidor(String nome, String email, TipoDeCliente tipoDeCliente) {
         this.nome = nome;
