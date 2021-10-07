@@ -48,7 +48,7 @@ public class ServicoConsumidor {
         throw new Exception("Consumidor não cadastrado no sistema. ");
     }
 
-    //-------------------------------------------------MÉTODO PARA PESQUISAR CONSUMIDOR PELO E-MAIL
+    //-------------------------------------------------MÉTODO VALIDAR O E-MAIL
     public static void validarEmail(String email) throws Exception{
         if (!email.contains("@")){
             throw new Exception("E-mail inválido. ");
@@ -63,5 +63,6 @@ public class ServicoConsumidor {
             }
         }
     }
+
 
 }

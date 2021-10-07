@@ -1,5 +1,6 @@
 package com.br.zup;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -38,6 +39,16 @@ public class Sistema {
         return ServicoFatura.cadastrarFatura(email, valor, dataDeVencimento);
     }
 
+    //-------------------------------------------------MÉTODO PARA EXIBIR LISTA DE FATURAS
+    public static List<Fatura> pesquisarFaturas() throws Exception{
+        String email = capturarDados("Digite o e-mail do consumidor, que deseja visualizar as faturas: ").nextLine();
+        ServicoConsumidor.validarEmail(email);
+
+        List<Fatura> faturas = ServicoFatura.pesquisarFaturaPeloEmailConsumidor(email);
+
+        return faturas;
+    }
+
     public static void executar() throws Exception{
         boolean continuarMenu = true;
 
@@ -49,7 +60,12 @@ public class Sistema {
                 Consumidor consumidor = cadastrarConsumidor();
             } else if (opcaoDoUsuario == 2){
                 Fatura fatura = cadastrarFatura();
-            } else if (opcaoDoUsuario == 3){
+            }else if (opcaoDoUsuario == 3){
+                List<Fatura> faturasDoConsumidor = pesquisarFaturas();
+                System.out.println("Total de faturas: " + faturasDoConsumidor.size());
+                System.out.println(faturasDoConsumidor);
+            } else if (opcaoDoUsuario == 4){
+                System.out.println("Opção inválida! Vamos tentar novamente? ");
                 continuarMenu = false;
             }
         }

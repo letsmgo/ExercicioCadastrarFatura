@@ -14,11 +14,11 @@ public class Fatura {
     }
 
     //-------------------------------------------------GETTERS AND SETTERS
-    public Consumidor getConsmidor() {
+    public Consumidor getConsumidor() {
         return consumidor;
     }
 
-    public void setConsmidor(Consumidor consmidor) {
+    public void setConsumidor(Consumidor consmidor) {
         this.consumidor = consmidor;
     }
 
