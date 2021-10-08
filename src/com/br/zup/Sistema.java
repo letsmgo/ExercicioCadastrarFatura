@@ -23,11 +23,12 @@ public class Sistema {
     public static Consumidor cadastrarConsumidor() throws Exception{
         String nome = capturarDados("Digite o nome do consumidor: ").nextLine();
         String email = capturarDados("Digite o e-mail do consumidor: ").nextLine();
+        System.out.println("Nossos tipos de clientes são: ");
         System.out.println(ServicoConsumidor.mostrarTiposDeClientes());
         String tipoDeCliente = capturarDados("Digite o tipo de cliente respectivo: ").nextLine();
-        ServicoConsumidor.validarTipoDeCliente(tipoDeCliente);
+        ServicoConsumidor.validarTipoDeClienteInformado(tipoDeCliente);
 
-        return ServicoConsumidor.cadastrarConsumidor(nome, email, TipoDeCliente.valueOf(tipoDeCliente));
+        return ServicoConsumidor.cadastrarConsumidor(nome, email, tipoDeCliente);
     }
 
     //-------------------------------------------------MÉTODO PARA CADASTRAR UMA FATURA

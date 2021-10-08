@@ -18,21 +18,22 @@ public class ServicoConsumidor {
     }
 
     //-------------------------------------------------MÉTODO PARA VALIDAR TIPO DE CLIENTE INPUTADO PELO CONSOLE
-    public static TipoDeCliente validarTipoDeCliente(String tipoDeCliente) throws Exception{
-        for (TipoDeCliente clienteReferencia : TipoDeCliente.values()) {
-            if (tipoDeCliente.equalsIgnoreCase(String.valueOf(clienteReferencia))){
-                return clienteReferencia;
+    public static TipoDeCliente validarTipoDeClienteInformado(String tipoDeCliente) throws Exception{
+        for (TipoDeCliente tipoClienteReferencia : TipoDeCliente.values()) {
+            if (tipoDeCliente.equalsIgnoreCase(String.valueOf(tipoClienteReferencia))){
+                return tipoClienteReferencia;
             }
         }
-        throw new Exception("Tipo de cliente não compatível! ");
+        throw new Exception("Tipo de cliente inválido, vamos tentar novamente? ");
     }
 
     //-------------------------------------------------MÉTODO PARA CADASTRAR UM CONSUMIDOR
-    public static Consumidor cadastrarConsumidor(String nome, String email, TipoDeCliente tipoDeCliente) throws Exception{
+    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoDeClienteRecebido) throws Exception{
+        TipoDeCliente tipoDeCliente = validarTipoDeClienteInformado(tipoDeClienteRecebido);
         validarEmail(email);
         verificarSeOEmailExiste(email);
         Consumidor consumidor = new Consumidor(nome, email, tipoDeCliente);
-    consumidores.add(consumidor);
+        consumidores.add(consumidor);
 
        return consumidor;
     }
