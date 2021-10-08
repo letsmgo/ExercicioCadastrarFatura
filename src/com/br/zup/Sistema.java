@@ -49,7 +49,7 @@ public class Sistema {
         return faturas;
     }
 
-    public static void executar() throws Exception{
+    public static boolean executar() throws Exception{
         boolean continuarMenu = true;
 
         while (continuarMenu){
@@ -69,5 +69,6 @@ public class Sistema {
                 continuarMenu = false;
             }
         }
+        return continuarMenu;
     }
 }
